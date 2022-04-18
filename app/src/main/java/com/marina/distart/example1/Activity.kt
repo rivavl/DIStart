@@ -1,10 +1,21 @@
 package com.marina.distart.example1
 
+import javax.inject.Inject
+
 class Activity {
 
-    lateinit var keyboard: Keyboard
+    // при помощи геттеров
+    val component = DaggerNewComponent.create()
+    val keyboard: Keyboard = component.getKeyboard()
+    val mouse: Mouse = component.getMouse()
+    val monitor: Monitor = component.getMonitor()
+
+
+    // инъекция в поля
+    @Inject
+    lateinit var keyboardIn: Keyboard
 
     init {
-        Component().inject(this)
+        DaggerNewComponent.create().inject(this)
     }
 }
