@@ -3,7 +3,7 @@ package com.marina.distart.example2.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.marina.distart.R
-import com.marina.distart.example2.di.DaggerApplicationComponent
+import com.marina.distart.example2.ExampleApp
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewModel: ExampleViewModel
 
     private val component by lazy {
-        DaggerApplicationComponent.factory().create(application, System.currentTimeMillis())
+        (application as ExampleApp).component
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
