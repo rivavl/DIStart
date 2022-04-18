@@ -1,8 +1,9 @@
 package com.marina.distart.example2.data.database
 
 import android.util.Log
+import javax.inject.Inject
 
-class ExampleDatabase {
+class ExampleDatabase @Inject constructor() {
 
     fun method() {
         Log.d(LOG_TAG, "ExampleDatabase")
