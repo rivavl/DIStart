@@ -8,6 +8,6 @@ class ExampleViewModel(
 ) {
 
     fun method() {
-
+        useCase()
     }
 }
