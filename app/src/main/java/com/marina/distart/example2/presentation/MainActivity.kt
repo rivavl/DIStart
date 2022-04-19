@@ -2,6 +2,7 @@ package com.marina.distart.example2.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.marina.distart.R
 import com.marina.distart.example2.ExampleApp
 import javax.inject.Inject
@@ -9,7 +10,15 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var viewModel: ExampleViewModel
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val viewModel by lazy {
+        ViewModelProvider(this, viewModelFactory)[ExampleViewModel::class.java]
+    }
+
+    private val viewModel2 by lazy {
+        ViewModelProvider(this, viewModelFactory)[ExampleViewModel2::class.java]
+    }
 
     private val component by lazy {
         (application as ExampleApp).component
