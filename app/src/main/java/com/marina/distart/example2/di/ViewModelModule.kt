@@ -6,7 +6,6 @@ import com.marina.distart.example2.presentation.ExampleViewModel2
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import dagger.multibindings.StringKey
 
 @Module
 interface ViewModelModule {
@@ -14,12 +13,12 @@ interface ViewModelModule {
     // @IntoMap говорит собирать вью модели в мапу
     // @StringKey указываем ключ
     @IntoMap
-    @StringKey("ExampleViewModel")
+    @ViewModelKey(ExampleViewModel::class)
     @Binds
     fun bindExampleViewModel(impl: ExampleViewModel): ViewModel
 
     @IntoMap
-    @StringKey("ExampleViewModel2")
+    @ViewModelKey(ExampleViewModel2::class)
     @Binds
     fun bindExampleViewModel2(impl: ExampleViewModel2): ViewModel
 }
