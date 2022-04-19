@@ -2,6 +2,7 @@ package com.marina.distart.example2.di
 
 import android.content.Context
 import com.marina.distart.example2.presentation.MainActivity
+import com.marina.distart.example2.presentation.MainActivity2
 import dagger.BindsInstance
 import dagger.Component
 
@@ -10,6 +11,7 @@ import dagger.Component
 interface ApplicationComponent {
 
     fun inject(activity: MainActivity)
+    fun inject(activity: MainActivity2)
 
     // еще один способ добавить агрументы в граф
     @Component.Factory
