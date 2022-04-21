@@ -4,6 +4,7 @@ import com.marina.distart.example2.presentation.MainActivity
 import com.marina.distart.example2.presentation.MainActivity2
 import dagger.BindsInstance
 import dagger.Subcomponent
+import javax.inject.Named
 
 @Subcomponent(
     modules = [ViewModelModule::class]
@@ -16,7 +17,8 @@ interface ActivityComponent {
     @Subcomponent.Factory
     interface Factory {
         fun create(
-            @BindsInstance id: String
+            @BindsInstance @IdQualifier id: String,
+            @BindsInstance @NameQualifier name: String
         ): ActivityComponent
     }
 }
