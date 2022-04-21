@@ -11,7 +11,6 @@ import javax.inject.Provider
 * но ViewModelFactory должна быть одна на все приложение
 * */
 
-@ApplicationScope
 class ViewModelFactory @Inject constructor(
     // @JvmSuppressWildcards чтобы даггер понимал, откуда брать реализацию объекта
     private val viewModelProviders: @JvmSuppressWildcards Map<Class<out ViewModel>, Provider<ViewModel>>
